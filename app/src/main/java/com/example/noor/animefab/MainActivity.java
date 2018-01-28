@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isOpen;
     ImageView ivMinionWithBalloons, ivMinionOnRocket, ivSupperMinion;
     Animation launch, fly, land,revLaunch, revFly, revLand;
+    boolean isLaunched,isLanded,isFlied;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         rotateOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_open);
         rotateClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_close);
 
+        isLanded=false;
+        isLanded=false;
+        isFlied=false;
+
         revLand=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rev_land);
         revFly=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rev_fly);
         revLaunch=AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rev_launch);
@@ -58,9 +63,18 @@ public class MainActivity extends AppCompatActivity {
                     fabFly.setVisibility(View.INVISIBLE);
                     fabLift.setVisibility(View.INVISIBLE);
 
-                    ivMinionWithBalloons.startAnimation(revLand);
-                    ivSupperMinion.startAnimation(revFly);
-                    ivMinionOnRocket.startAnimation(revLaunch);
+                    if (isLanded) {
+                        ivMinionWithBalloons.startAnimation(revLand);
+                        isLanded=false;
+                    }
+                    if (isFlied){
+                        ivSupperMinion.startAnimation(revFly);
+                        isFlied=false;
+                    }
+                    if (isLaunched) {
+                        ivMinionOnRocket.startAnimation(revLaunch);
+                        isLaunched=false;
+                    }
 
                     isOpen = false;
                 } else {
@@ -84,22 +98,31 @@ public class MainActivity extends AppCompatActivity {
         fabLift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launch = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.launch);
-                ivMinionOnRocket.startAnimation(launch);
+                if (!isLaunched) {
+                    launch = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.launch);
+                    ivMinionOnRocket.startAnimation(launch);
+                }
+                isLaunched=true;
             }
         });
         fabFly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fly = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fly);
-                ivSupperMinion.startAnimation(fly);
+                if (!isFlied) {
+                    fly = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fly);
+                    ivSupperMinion.startAnimation(fly);
+                }
+                isFlied=true;
             }
         });
         fabFan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                land = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.land);
-                ivMinionWithBalloons.startAnimation(land);
+                if (!isLanded) {
+                    land = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.land);
+                    ivMinionWithBalloons.startAnimation(land);
+                }
+                isLanded=true;
             }
         });
 
