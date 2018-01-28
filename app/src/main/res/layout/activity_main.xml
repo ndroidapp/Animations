@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.example.noor.animefab.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivMinionWithBalloons"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/minion_with_balloons"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSupperMinion"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/supper_minion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabAdd" />
+
+    <ImageView
+        android:id="@+id/ivMinionOnRocket"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/minion_on_rocket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabLift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#10c4d4"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabFly"
+        app:layout_constraintEnd_toEndOf="@+id/fabFly"
+        app:layout_constraintStart_toStartOf="@+id/fabFly"
+        app:srcCompat="@drawable/flight" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabFly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#dfca28"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabFan"
+        app:layout_constraintEnd_toEndOf="@+id/fabFan"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/fabFan"
+        app:srcCompat="@drawable/fly" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabFan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#efdf2553"
+        android:clickable="true"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabAdd"
+        app:layout_constraintEnd_toEndOf="@+id/fabAdd"
+        app:layout_constraintStart_toStartOf="@+id/fabAdd"
+        app:srcCompat="@drawable/fan" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#0b9437"
+        android:clickable="true"
+        android:elevation="6dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/add" />
+</android.support.constraint.ConstraintLayout>
